@@ -14,8 +14,8 @@ public class FizzBuzz {
             System.out.print("Inserisci il numero di cicli (tra 1 e 1000): ");
             numberOfCycles = Integer.parseInt(scan.nextLine());
 
-            scan.close();
-            if (numberOfCycles > 0 && numberOfCycles <= 1000) {
+
+            if (numberOfCycles >= 1 && numberOfCycles <= 1000) {
                 invalidInput = false;
                 for (int i = 1; i <= numberOfCycles; i++) {
                     if ((i % 3 == 0) || (i % 5 == 0)) {
@@ -32,8 +32,10 @@ public class FizzBuzz {
             } else {
                 System.out.println("*** Inserire un input valido ***");
             }
+
+
         }
 
-
+        scan.close();
     }
 }
