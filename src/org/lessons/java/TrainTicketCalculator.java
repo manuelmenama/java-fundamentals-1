@@ -1,5 +1,6 @@
 package org.lessons.java;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class TrainTicketCalculator {
@@ -20,20 +21,31 @@ public class TrainTicketCalculator {
         System.out.print("Inserisci l'età: ");
         inputAge = Integer.parseInt(scan.nextLine());
 
+        scan.close();
+
         System.out.println("*************");
 
         double totalPrice = (double) inputKm * pricePerKm;
 
-        System.out.println("Prezzo intero: " + totalPrice);
+        String euroPattern = "###,###.##";
+        DecimalFormat decimalFormat = new DecimalFormat(euroPattern);
+
+        String format;
+        format = decimalFormat.format(totalPrice);
+
+        System.out.println("Prezzo intero: " + format + " €");
 
         System.out.println("*************");
 
+
         if (inputAge >= 65) {
             totalPrice = totalPrice - totalPrice * silverDiscount;
-            System.out.print("Prezzo per gli over 65: " + totalPrice);
+            format = decimalFormat.format(totalPrice);
+            System.out.print("Prezzo per gli over 65: " + format + " €");
         } else if (inputAge < 18) {
             totalPrice = totalPrice - totalPrice * youngDiscount;
-            System.out.println("Prezzo per i minorenni: " + totalPrice);
+            format = decimalFormat.format(totalPrice);
+            System.out.println("Prezzo per i minorenni: " + format + " €");
         } else {
             System.out.println("Nessuno sconto applicato");
         }
