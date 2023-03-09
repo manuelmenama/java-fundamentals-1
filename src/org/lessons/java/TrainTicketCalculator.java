@@ -27,7 +27,7 @@ public class TrainTicketCalculator {
 
         double totalPrice = (double) inputKm * pricePerKm;
 
-        String euroPattern = "##.##";
+        String euroPattern = "0.00";
         DecimalFormat decimalFormat = new DecimalFormat(euroPattern);
 
         String format;
